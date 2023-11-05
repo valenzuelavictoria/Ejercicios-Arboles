@@ -1,0 +1,142 @@
+#Implementar un algoritmo que permita generar un árbol con los datos de la siguiente tabla y resuelva las siguientes consultas:
+#a. listado inorden de las criaturas y quienes la derrotaron;
+#c. mostrar toda la información de la criatura Talos;
+#d. determinar los 3 héroes o dioses que derrotaron mayor cantidad de criaturas;
+#e. listar las criaturas derrotadas por Heracles;
+#f. listar las criaturas que no han sido derrotadas;
+#g. además cada nodo debe tener un campo “capturada” que almacenará el nombre del héroe o dios que la capturo;
+#h. modifique los nodos de las criaturas Cerbero, Toro de Creta, Cierva Cerinea y Jabalí de Erimanto indicando que Heracles las atrapó;
+#i. se debe permitir búsquedas por coincidencia;
+#j. eliminar al Basilisco y a las Sirenas;
+#k. modificar el nodo que contiene a las Aves del Estínfalo, agregando que Heracles derroto a varias;
+#l. modifique el nombre de la criatura Ladón por Dragón Ladón;
+#m. realizar un listado por nivel del árbol;
+#n. muestre las criaturas capturadas por Heracles.
+
+from arbolbinario import BinaryTree, get_value_from_file
+
+arbol_criaturas = BinaryTree()
+
+Lista_criaturas = [
+    {'Criatura': 'Ceto', 'Derrota': None},
+    {'Criatura': 'Tifón', 'Derrota': 'Zeús'},
+    {'Criatura': 'Equidna', 'Derrota': 'Argos Panoptes'},
+    {'Criatura': 'Dino', 'Derrota': None},
+    {'Criatura': 'Pefredo', 'Derrota': None},
+    {'Criatura': 'Enio', 'Derrota': None},
+    {'Criatura': 'Escila', 'Derrota': None},
+    {'Criatura': 'Caribdis', 'Derrota': None},
+    {'Criatura': 'Euríale', 'Derrota': None},
+    {'Criatura': 'Esteno', 'Derrota': None},
+    {'Criatura': 'Medusa', 'Derrota': 'Perseo'},
+    {'Criatura': 'Ladón', 'Derrota': 'Heracles'},
+    {'Criatura': 'Quimera', 'Derrota': 'Belerofonde'},
+    {'Criatura': 'Leon de Nemea', 'Derrota': 'Heracles'},
+    {'Criatura': 'Esfinge', 'Derrota': 'Edipo'},
+    {'Criatura': 'Pitón', 'Derrota': 'Apolo'},
+    {'Criatura': 'Talos', 'Derrota': 'Medea'},
+    {'Criatura': 'Minotauro de Creta', 'Derrota': 'Teseo'},
+    {'Criatura': 'Sirenas', 'Derrota': None},
+    {'Criatura': 'Harpías', 'Derrota': None},
+    {'Criatura': 'Gerión', 'Derrota': 'Heracles'},
+    {'Criatura': 'Ortro', 'Derrota': 'Heracles'},
+    {'Criatura': 'Aguila de Caucaso', 'Derrota': None},
+    {'Criatura': 'Hidra de Lerna', 'Derrota': 'Heracles'},
+    {'Criatura': 'Dragon de Colquida', 'Derrota': None},
+    {'Criatura': 'Cerbero', 'Derrota': None},
+    {'Criatura': 'Cerda de Cromión', 'Derrota': 'Teseo'},
+    {'Criatura': 'Toro de Creta', 'Derrota': 'Teseo'},
+    {'Criatura': 'Jabalí de Calidón', 'Derrota': 'Atlanta'},
+    {'Criatura': 'Carcinos', 'Derrota': None},
+    {'Criatura': 'Láquesis', 'Derrota': None},
+    {'Criatura': 'Atropos', 'Derrota': None},
+    {'Criatura': 'Argos Panoptes', 'Derrota': 'Hermes'},
+    {'Criatura': 'Aves de Estínfalo', 'Derrota': None},
+    {'Criatura': 'Cierva de Cerinea', 'Derrota': None},
+    {'Criatura': 'Basilisco', 'Derrota': None},
+    {'Criatura': 'Jabalí de Erimanto', 'Derrota': None},
+]
+
+for I in Lista_criaturas:
+    arbol_criaturas.insert_node(I['Criatura'], {'Derrota': I['Derrota']})
+    
+#a. listado inorden de las criaturas y quienes la derrotaron;
+#arbol_criaturas.inorden()
+#print()
+
+#b. se debe permitir cargar una breve descripción sobre cada criatura;
+#arbol_criaturas.inorden_add_field('Descripcion', None)
+#arbol_criaturas.inorden()
+#print()
+
+#c. mostrar toda la información de la criatura Talos;
+#buscado = arbol_criaturas.search('Talos')
+#   if buscado is not None:
+#      print(f'Talos fue encontrado y capturado por {buscado.other_values}')
+#   else:
+#      print(f'Talos no fue encontrado')
+#   print()
+
+#d. determinar los 3 héroes o dioses que derrotaron mayor cantidad de criaturas;
+
+#e. listar las criaturas derrotadas por Heracles;
+#print('Heracles ha derrotado a: ')
+#arbol_criaturas.inorden_defeats('Heracles')
+#print()
+
+#f. listar las criaturas que no han sido derrotadas;
+#print('Criaturas no derrotadas: ')
+#arbol_criaturas.inorden_defeats(None)
+
+
+#g. además cada nodo debe tener un campo “capturada” que almacenará el nombre del héroe o dios que la capturo;
+
+#h. modifique los nodos de las criaturas Cerbero, Toro de Creta, Cierva Cerinea y Jabalí de Erimanto indicando que Heracles las atrapó;
+#buscados=['Cerbero','Toro de Creta','Cierva de Cerinea','Jabali de Erimanto']
+#arbol_criaturas.inorden_modify_fields(buscados,'Capturado','Heracles')
+#arbol_criaturas.inorden()
+#print()
+
+#i. se debe permitir búsquedas por coincidencia;
+#buscado = input('Ingrese criatura que busca: ')
+#resultados = arbol_criaturas.search_by_coincidence(buscado)
+#if resultados is not None:
+#    print("Coincidencias encontradas:")
+#    for criatura in resultados:
+#        print(criatura)
+#else:
+#    print("No se encontraron coincidencias.")
+
+#j. eliminar al Basilisco y a las Sirenas;
+#buscado=arbol_criaturas.search('Basilisco')
+#if buscado is not None:
+#    arbol_criaturas.delete_node('Basilisco')
+#    print('Se elimino al basilisco')
+
+#buscado=arbol_criaturas.search('Sirenas')
+#if buscado is not None:
+#    arbol_criaturas.delete_node('Sirenas')
+#    print('Se elimino a las sirenas')
+#arbol_criaturas.inorden()
+#print()
+
+#k. modificar el nodo que contiene a las Aves del Estínfalo, agregando que Heracles derroto a varias;
+#arbol_criaturas.inorden_modify_fields('Aves del Estínfalo','Derrotado','Heracles')
+#arbol_criaturas.inorden()
+#print()
+
+#l. modifique el nombre de la criatura Ladón por Dragón Ladón;
+#buscado=arbol_criaturas.search('Ladón')
+#if buscado is not None:
+#    otherValuesBuscado= buscado.other_values
+#    arbol_criaturas.delete_node('Ladón')
+#    arbol_criaturas.insert_node('Dragón Ladón',otherValuesBuscado)
+#arbol_criaturas.inorden()
+#print()
+
+#m. realizar un listado por nivel del árbol;
+#print('Listado por nivel: ')
+#arbol_criaturas.by_level()
+#print()
+
+#n. muestre las criaturas capturadas por Heracles.
