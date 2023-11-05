@@ -1,0 +1,70 @@
+#Dado un árbol con los nombre de los superhéroes y villanos de la saga Marvel Cinematic Universe (MCU), desarrollar un algoritmo que contemple lo siguiente:
+#a. además del nombre del superhéroe, en cada nodo del árbol se almacenará un campo booleano que indica si es un héroe o un villano, True y False respectivamente;
+#b. listar los villanos ordenados alfabéticamente;
+#c. mostrar todos los superhéroes que empiezan con C;
+#d. determinar cuántos superhéroes hay el árbol;
+#e. Doctor Strange en realidad está mal cargado. Utilice una búsqueda por proximidad paraencontrarlo en el árbol y modificar su nombre;
+#f. listar los superhéroes ordenados de manera descendente;
+#g. generar un bosque a partir de este árbol, un árbol debe contener a los superhéroes y otro a los villanos, luego resolver las siguiente tareas:
+#   I. determinar cuántos nodos tiene cada árbol;
+#   II. realizar un barrido ordenado alfabéticamente de cada árbol.
+
+from arbolbinario import BinaryTree
+
+arbol = BinaryTree()
+arbolHeroes = BinaryTree()
+arbolVillanos = BinaryTree()
+
+lista_heroes = [
+    {'name': 'Iron Man', 'heroe': True},
+    {'name': 'Thanos', 'heroe': False},
+    {'name': 'Capitan America', 'heroe': True},
+    {'name': 'Red Skull', 'heroe': False},
+    {'name': 'Hulk', 'heroe': True},
+    {'name': 'Black Widow', 'heroe': True},
+    {'name': 'Rocket Raccon', 'heroe': True},
+    {'name': 'Doctor Strage', 'heroe': True},
+    {'name': 'Doctor Octopus', 'heroe': False},
+    {'name': 'Deadpool', 'heroe': True},
+    {'name': 'Thor', 'heroe': True},
+    {'name': 'Ultron', 'heroe': False},
+    {'name': 'Duende Verde', 'heroe': False},
+]
+
+for heroe in lista_heroes:
+    arbol.insert_node(heroe['name'], heroe['heroe'])
+
+#b. listar los villanos ordenados alfabéticamente;
+#arbol.inorden_super_or_villano(False)
+#print()
+
+#c. mostrar todos los superhéroes que empiezan con C;
+#arbol.inorden_start_with('C')
+#print()
+
+#d. determinar cuántos superhéroes hay el árbol;
+#print(f'Cantidad de Heroes: {arbol.contar_heroes()}')
+#print()
+
+#e. Doctor Strange en realidad está mal cargado. Utilice una búsqueda por proximidad para encontrarlo en el árbol y modificar su nombre;
+#modificar=input('Ingrese heroe que desea modificar: ')
+#pos=arbol.search(modificar)
+#if pos:
+#    is_hero = pos.other_values
+#    arbol.delete_node(modificar)
+#    print('modificar')
+#    new_value = input('ingrese en nuevo nombre: ')
+#    arbol.insert_node(new_value, is_hero)
+#else:
+#    print('no esta')
+#print()
+#arbol.inorden()
+
+#f. listar los superhéroes ordenados de manera descendente;
+#print("Superhéroes ordenados de manera descendente: ")
+#arbol.postorden_heroes()
+#print()
+
+#g. generar un bosque a partir de este árbol, un árbol debe contener a los superhéroes y otro a los villanos, luego resolver las siguiente tareas:
+#I. determinar cuántos nodos tiene cada árbol;
+#II. realizar un barrido ordenado alfabéticamente de cada árbol.
