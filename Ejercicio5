@@ -12,8 +12,6 @@
 from arbolbinario import BinaryTree
 
 arbol = BinaryTree()
-arbolHeroes = BinaryTree()
-arbolVillanos = BinaryTree()
 
 lista_heroes = [
     {'name': 'Iron Man', 'heroe': True},
